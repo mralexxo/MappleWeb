@@ -8,7 +8,7 @@
 	}
 %>
 <form action="/MappleWeb/SignInServlet" method="post">
-	<input type="text" name="usuario" placeholder="e-mail"/>
+	<input type="text" name="usuario" placeholder="email"/>
 	<br/>
 	<input type="password" name="clave" placeholder="Contraseña"/>	
 	<br/>  			

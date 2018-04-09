@@ -19,5 +19,9 @@ public interface AttributeNames {
 	
 	
 	public static final String PRODUCTOS = "productos";
+	public static final String TOP_PRODUCTOS = "top_productos";
+	public static final String STOCK_PRODUCTOS = "stock_productos";
+
+
 		
 }

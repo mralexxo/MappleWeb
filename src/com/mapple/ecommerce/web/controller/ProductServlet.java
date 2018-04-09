@@ -34,35 +34,50 @@ public class ProductServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = null;
-
-		String nombre = request.getParameter(SessionAttributeNames.NOMBRE);
-		String desde = request.getParameter(SessionAttributeNames.DESDE);	
-		String hasta = request.getParameter(SessionAttributeNames.HASTA);	
-
-		String idioma = SessionAttributeNames.ES;
-
-		ProductoCriteria criteria = null;
-
-		criteria  = new ProductoCriteria() ;
-		criteria.setNombre(nombre);
-		criteria.setPrecioDesde(StringUtils.isEmpty(desde)?0.0d:Double.valueOf(desde)); 
-		criteria.setPrecioHasta(StringUtils.isEmpty(hasta)?Double.MAX_VALUE:Double.valueOf(hasta));
-
-
-		try {
-			List<Producto> productos = productoService.findByCriteria(criteria, 1, 10, idioma);	
-			if (productos.isEmpty()) {
-				request.setAttribute(AttributeNames.ERROR, AttributeNames.NOT_FOUND);
-				target = ViewsPaths.SEARCH;
-			} else {					
-				request.setAttribute(AttributeNames.PRODUCTOS, productos);
-				target = ViewsPaths.SEARCH;
-			}
+		String action =null;
+		
+		action = request.getParameter(ParameterNames.ACTION);
+		
+		if (ParameterNames.FIND_BY_ID.equalsIgnoreCase(action)) {
 			
-		} catch (Exception e) {
-			logger.error(e);
-			request.setAttribute(AttributeNames.ERROR, e.getMessage());
-			target = ViewsPaths.SEARCH;			
+			
+		} else if (ParameterNames.FIND_BY_CRITERIA.equalsIgnoreCase(action)) {
+
+			String nombre = request.getParameter(ParameterNames.NOMBRE);
+			String desde = request.getParameter(ParameterNames.DESDE);	
+			String hasta = request.getParameter(ParameterNames.HASTA);	
+			String idioma = SessionAttributeNames.ES;
+
+			Long codProducto = Long.parseLong(request.getParameter(ParameterNames.NOMBRE));
+
+			// Para que aparezcan rellenos al volver a pintar la JSP
+			request.setAttribute(ParameterNames.NOMBRE, nombre);
+			request.setAttribute(ParameterNames.DESDE, desde);
+			request.setAttribute(ParameterNames.HASTA, hasta);
+
+			ProductoCriteria criteria = null;
+
+			criteria  = new ProductoCriteria() ;
+			criteria.setNombre(nombre);
+			criteria.setPrecioDesde(StringUtils.isEmpty(desde)?0.0d:Double.valueOf(desde)); 
+			criteria.setPrecioHasta(StringUtils.isEmpty(hasta)?Double.MAX_VALUE:Double.valueOf(hasta));
+
+
+			try {
+				List<Producto> productos = productoService.findByCriteria(criteria, 1, 15, idioma);	
+				if (productos.isEmpty()) {
+					request.setAttribute(AttributeNames.ERROR, AttributeNames.NOT_FOUND);
+					target = ViewsPaths.SEARCH;
+				} else {					
+					request.setAttribute(AttributeNames.PRODUCTOS, productos);
+					target = ViewsPaths.SEARCH;
+				}
+
+			} catch (Exception e) {
+				logger.error(e);
+				request.setAttribute(AttributeNames.ERROR, e.getMessage());
+				target = ViewsPaths.SEARCH;			
+			}
 		}
 		request.getRequestDispatcher(target).forward(request, response);
 

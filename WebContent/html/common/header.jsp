@@ -32,7 +32,7 @@
 			
 			
 			<!-- Tile de usuario -->
-				<div class="user-data">			
+				<div class="user-data" >			
 				<%@include file="/html/user/user-profile.jsp"%>						
 				</div>		
 		</div>
