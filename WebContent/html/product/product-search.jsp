@@ -1,4 +1,5 @@
 <%@include file="/html/common/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.util.List, com.mapple.ecommerce.model.*, com.mapple.ecommerce.web.util.*, com.mapple.ecommerce.web.controller.*" %>
 
 		<%
@@ -7,6 +8,9 @@
 			%><%=error%><%
 		}
 		%>
+		
+		<h3><fmt:message key="busqueda" bundle="${messages}"/></h3>
+		
 <form action="/MappleWeb/ProductServlet" method="post">
 	<input type="hidden" name="action" value="findByCriteria"/>
 	<input type="text" name="nombre" placeholder="nombre" value="<%=request.getAttribute(ParameterNames.NOMBRE)%>"/>	 	

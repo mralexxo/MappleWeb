@@ -2,6 +2,7 @@ package com.mapple.ecommerce.web.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,8 @@ import com.mapple.ecommerce.model.Producto;
 import com.mapple.ecommerce.service.ProductoCriteria;
 import com.mapple.ecommerce.service.ProductoService;
 import com.mapple.ecommerce.service.impl.ProductoServiceImpl;
+import com.mapple.ecommerce.web.util.SessionManager;
+import com.mapple.ecommerce.web.util.WebConstants;
 
 
 @WebServlet("/ProductServlet")
@@ -46,7 +49,7 @@ public class ProductServlet extends HttpServlet {
 			String nombre = request.getParameter(ParameterNames.NOMBRE);
 			String desde = request.getParameter(ParameterNames.DESDE);	
 			String hasta = request.getParameter(ParameterNames.HASTA);	
-			String idioma = SessionAttributeNames.ES;
+			String idioma = ((Locale) SessionManager.get(request, WebConstants.USER_LOCALE)).toString();
 
 			Long codProducto = Long.parseLong(request.getParameter(ParameterNames.NOMBRE));
 

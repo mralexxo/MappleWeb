@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ 
+<%@page import="com.mapple.ecommerce.model.*" %>
+<%@page import="com.mapple.ecommerce.web.util.*" %>
+
+<fmt:setLocale value="en" scope="session"/>
+<fmt:setBundle basename = "resources.Messages" var = "messages" scope="session"/>
+
 <!-- Controlamos nosotros la inicializacion, en SessionManager -->
 <%@page session="false"%>  
 
@@ -15,6 +24,9 @@
 
 			<a href="/MappleWeb/html/index.jsp">
 				<img src="/MappleWeb/images/static/logo.png" height="60" width="60"></img>
+				
+				<fmt:message key="titulo" bundle="${messages}"></fmt:message>
+				
 				Mapple Inc.
 							
 			</a>	
