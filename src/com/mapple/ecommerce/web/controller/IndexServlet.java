@@ -1,6 +1,7 @@
 package com.mapple.ecommerce.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,8 +17,7 @@ import com.mapple.ecommerce.model.Producto;
 import com.mapple.ecommerce.service.ProductoService;
 import com.mapple.ecommerce.service.impl.ProductoServiceImpl;
 
-@WebServlet("/index.jsp")
-
+@WebServlet("/IndexServlet")
 public class IndexServlet extends HttpServlet {
 	
 	private static Logger logger = LogManager.getLogger(IndexServlet.class.getName());
@@ -34,11 +34,17 @@ public class IndexServlet extends HttpServlet {
 		
 		int n = 10;
 		try{
-		List<Producto> topVentas=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
-		List<Producto> masStock=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
-		request.setAttribute(AttributeNames.TOP_PRODUCTOS, topVentas);
-		request.setAttribute(AttributeNames.STOCK_PRODUCTOS, masStock);
+			List<Producto> topProductos = new ArrayList<Producto>();
+			Producto p1 = new Producto();
+			p1.setNombre("Cocacola");
+			topProductos.add(p1);
 			
+			/*List<Producto> topProductos=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
+		List<Producto> masStock=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
+		*/
+		request.setAttribute(AttributeNames.TOP_PRODUCTOS, topProductos);
+		/*request.setAttribute(AttributeNames.STOCK_PRODUCTOS, masStock);
+			*/
 		request.getRequestDispatcher(ViewsPaths.INDEX).forward(request, response);
 		}
 		

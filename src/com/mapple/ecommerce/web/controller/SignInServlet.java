@@ -47,7 +47,7 @@ public class SignInServlet extends HttpServlet {
 					target = ViewsPaths.SIGN_IN;
 				} else {
 					SessionManager.set(request, SessionAttributeNames.USUARIO, usuario);
-					target = ViewsPaths.INDEX;
+					target = request.getContextPath()+ViewsPaths.INDEX;
 					
 					// Explicar mejor redirect aqui y por que
 					

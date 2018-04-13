@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
  
 <%@page import="com.mapple.ecommerce.model.*" %>
 <%@page import="com.mapple.ecommerce.web.util.*" %>
+<%@page import="com.mapple.ecommerce.model.*" %>
 
 <fmt:setLocale value="en" scope="session"/>
 <fmt:setBundle basename = "resources.Messages" var = "messages" scope="session"/>
 
-<!-- Controlamos nosotros la inicializacion, en SessionManager -->
-<%@page session="false"%>  
 
-<%@page import="com.mapple.ecommerce.model.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
