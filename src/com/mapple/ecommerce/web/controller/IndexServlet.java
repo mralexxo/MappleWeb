@@ -31,7 +31,6 @@ public class IndexServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		
 		int n = 10;
 		try{
 			List<Producto> topProductos = new ArrayList<Producto>();

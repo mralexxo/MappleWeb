@@ -19,7 +19,7 @@ public class SignOutServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession(true).setAttribute("usuario", null);
-		response.sendRedirect(ViewsPaths.HOME_PAGE);
+		response.sendRedirect(ViewsPaths.INDEX_SERVLET);
 	}
 
 	

@@ -1,7 +1,7 @@
-<!-- Por que no incluir cabeza y pie? -->
+<%@include file="/html/common/header.jsp"%>
 
-<h3>Lo lamentamos, la página solicitada no se ha encontrado.</h3>
+<h3>La página solicitada no se ha encontrado.</h3>
 
-<!-- cambiar por c:url -->
-<p><a href="/MusicStreamingWeb/html/signin/signin.jsp">Continuar...</a></p>
+<p><a href="/MappleWeb/html/signin/signin.jsp">Continuar...</a></p>
 
+<%@include file="/html/common/footer.jsp"%>

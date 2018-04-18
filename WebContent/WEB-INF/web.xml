@@ -19,10 +19,8 @@
   </error-page> 
   
     <!-- ========================== Filters ============================ -->
-    <!-- Configurados aqui en lugar de con anotaciones ya que la
-         anotacion @WebFilter no tiene manera de especificar orden de los 
-         filtros y esto es importante -->
-<!-- 	<filter>
+
+	<filter>
 	   <filter-name>InitSessionFilter</filter-name>
 	   <filter-class>com.mapple.ecommerce.web.filter.InitSessionFilter</filter-class>
 	</filter>
@@ -37,9 +35,8 @@
 	   <url-pattern>/*</url-pattern>
 	</filter-mapping>  
 	
-	<filter-mapping>
+ 	<filter-mapping>
 	   <filter-name>LocaleFilter</filter-name>
 	   <url-pattern>/*</url-pattern>
-	</filter-mapping>  
-	 -->
+	</filter-mapping>
 </web-app>

@@ -1,4 +1,4 @@
-package com.sacra.ecommerce.web.util;
+package com.mapple.ecommerce.web.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,9 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.sacra.ecommerce.web.config.ConfigurationManager;
-import com.sacra.ecommerce.web.config.ConfigurationParameterNames;
+import com.mapple.ecommerce.web.config.ConfigurationManager;
+import com.mapple.ecommerce.web.config.ConfigurationParameterNames;
+import com.mapple.ecommerce.web.util.LocaleManager;
 
 public class LocaleManager {
 	
@@ -17,13 +18,11 @@ public class LocaleManager {
 	// Locales soportados por esta web. 
 	private static List<Locale> supportedLocales = null;
 	static {
+
 		// Cargamos los Locale configurados
 		supportedLocales = new ArrayList<Locale>();
-		
 		String[] supportedLocaleNames= 
-				ConfigurationManager.getInstance().
-					getParameter(ConfigurationParameterNames.SUPPORTED_LOCALES)
-					.split(",");
+				ConfigurationManager.getInstance().getParameter(ConfigurationParameterNames.SUPPORTED_LOCALES).split(",");
 
 		// Lista de locales admitidos
         Locale locale = null;

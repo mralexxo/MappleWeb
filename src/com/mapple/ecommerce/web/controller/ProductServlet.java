@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.mapple.ecommerce.exceptions.DataException;
 import com.mapple.ecommerce.model.Producto;
 import com.mapple.ecommerce.service.ProductoCriteria;
 import com.mapple.ecommerce.service.ProductoService;
@@ -38,7 +39,8 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = null;
 		String action =null;
-		
+		String idioma = SessionManager.get(request,WebConstants.USER_LOCALE).toString().substring(0,2).toUpperCase();
+
 		action = request.getParameter(ParameterNames.ACTION);
 		
 		if (ParameterNames.FIND_BY_ID.equalsIgnoreCase(action)) {
@@ -49,9 +51,7 @@ public class ProductServlet extends HttpServlet {
 			String nombre = request.getParameter(ParameterNames.NOMBRE);
 			String desde = request.getParameter(ParameterNames.DESDE);	
 			String hasta = request.getParameter(ParameterNames.HASTA);	
-			String idioma = ((Locale) SessionManager.get(request, WebConstants.USER_LOCALE)).toString();
-
-			Long codProducto = Long.parseLong(request.getParameter(ParameterNames.NOMBRE));
+			
 
 			// Para que aparezcan rellenos al volver a pintar la JSP
 			request.setAttribute(ParameterNames.NOMBRE, nombre);
@@ -64,7 +64,6 @@ public class ProductServlet extends HttpServlet {
 			criteria.setNombre(nombre);
 			criteria.setPrecioDesde(StringUtils.isEmpty(desde)?0.0d:Double.valueOf(desde)); 
 			criteria.setPrecioHasta(StringUtils.isEmpty(hasta)?Double.MAX_VALUE:Double.valueOf(hasta));
-
 
 			try {
 				List<Producto> productos = productoService.findByCriteria(criteria, 1, 15, idioma);	
@@ -80,6 +79,24 @@ public class ProductServlet extends HttpServlet {
 				logger.error(e);
 				request.setAttribute(AttributeNames.ERROR, e.getMessage());
 				target = ViewsPaths.SEARCH;			
+			} 
+		}else if (ParameterNames.FIND_BY_CATEGORIA.equalsIgnoreCase(action)) {
+			Long categoria =Long.parseLong(request.getParameter(ParameterNames.CATEGORIA));
+			//Creamos un objecto producto 
+			ProductoCriteria busquedaCategoria = null;
+			busquedaCategoria  = new ProductoCriteria() ;
+			
+			busquedaCategoria.setCodCategoria(categoria);
+			
+			try {
+				List<Producto> productosCategoria = productoService.findByCriteria(busquedaCategoria,1,15,idioma);
+				request.setAttribute(AttributeNames.PRODUCTOS, productosCategoria);
+				target = ViewsPaths.SEARCH;
+
+			} catch (DataException e) {
+				target= ViewsPaths.INDEX_SERVLET;
+				request.setAttribute("Error", "Ningun producto encontrado");
+				request.getRequestDispatcher(target).forward(request,response);
 			}
 		}
 		request.getRequestDispatcher(target).forward(request, response);

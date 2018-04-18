@@ -1,32 +1,43 @@
+<%@page import="com.mapple.ecommerce.web.controller.ParameterNames, java.util.*"%>
 <%@include file="/html/common/header.jsp"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registro</title>
-</head>
-<body>
 
-      <form action="/MappleWeb/UserServlet" method="POST">
-      	<strong>REGISTRO</strong>
-      	<input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ParameterNames.SIGNUP%>"/>
-          <label for="nombre">Nombre:</label>
-          <input type="text" name="<%=ParameterNames.NOMBRE%>" id="nobrme"/>
-          <label for="apellidos">Apellidos:</label>
-          <input type="text" name="<%=ParameterNames.APELLIDOS%>" id="apellidos"/>
-          <label for="email">Correo electrónico:</label>
-          <input type="text" name="<%=ParameterNames.EMAIL %>" id="email"/> 
-          <label for="direccion">Fecha de nacemento:</label>
-          <input type="text" name="<%=ParameterNames.DIRECCION%>" id="direccion"/>                                   
-          <label for="clave">Introduzca la contraseña:</label>
-          <input type="password" name="<%=ParameterNames.CLAVE%>" id="clave"/>  
 
-                                           
-          <input type="submit" value="Unirse" >
-      </form>
+<div class="login">
+<h3><strong>REGISTRO</strong></h3>
 
-</body>
-</html>
+  <form class="px-4 py-3" action="/MappleWeb/UserServlet" method="POST">  
+  	
+       <input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ParameterNames.SIGNUP%>"/>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="<%=ParameterNames.NOMBRE%>" >
+    </div>
+    <div class="form-group">
+      <label for="Apellidos">Apellidos</label>
+      <input type="text" class="form-control" id="surname" name="<%=ParameterNames.APELLIDOS%>"  >
+    </div>
+    <div class="form-group">
+      <label for="telefono">Telefono</label>
+      <input type="text" class="form-control" id="telefono" name="<%=ParameterNames.TELEFONO %>" >
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" name="<%=ParameterNames.EMAIL %>">
+    </div>
+    <div class="form-group">
+      <label for="clave">Contraseña</label>
+      <input type="password" class="form-control" id="password" name="<%=ParameterNames.CLAVE%>" >
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck">
+      <label class="form-check-label" for="dropdownCheck">
+        Recordarme
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/MappleWeb/html/signin/signin.jsp">¿Ya tienes cuenta? Iniciar Sesión</a>
+</div>
+
 <%@include file="/html/common/footer.jsp"%>

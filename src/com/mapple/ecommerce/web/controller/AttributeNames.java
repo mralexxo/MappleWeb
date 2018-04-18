@@ -5,6 +5,13 @@ public interface AttributeNames {
 	public static final String ERROR = "error";
 	public static final String USUARIO = "usuario";
 	
+	public static final String TELEFONOS = "telefonos";
+	public static final String TABLETS = "tablets";
+	public static final String PORTATILES = "portatiles";
+	public static final String ACCESORIOS = "accesorios";
+
+
+	
 	// Codigos de error
 	public static final String GENERIC_ERROR = "generic.error";
 	public static final String MISSING_PARAMETER_ERROR = "missing.error";

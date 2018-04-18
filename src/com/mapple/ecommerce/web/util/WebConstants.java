@@ -1,4 +1,4 @@
-package com.sacra.ecommerce.web.util;
+package com.mapple.ecommerce.web.util;
 
 public interface WebConstants {
 		

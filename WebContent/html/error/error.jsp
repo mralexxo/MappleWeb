@@ -1,8 +1,10 @@
-<!-- Por que no incluir cabeza y pie? -->
-<h3>Ops, ha ocurrido algún error!</h3>
+<%@include file="/html/common/header.jsp"%>
 
-<p>Por favor inténtelo de nuevo más tarde, o contacte con ....</p>
+<h3>Ha ocurrido un error</h3>
 
-<!-- cambiar por c:url -->
+<p>Por favor inténtelo de nuevo más tarde. Si el error persiste contacte con nosotros.</p>
+
 <p><a href="/">Continuar...</a></p>
+
+<%@include file="/html/common/footer.jsp"%>
 

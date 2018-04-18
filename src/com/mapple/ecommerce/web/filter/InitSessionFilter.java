@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.sacra.ecommerce.web.controller.SessionAttributeNames;
-import com.sacra.ecommerce.web.model.ShoppingCart;
-import com.sacra.ecommerce.web.util.SessionManager;
+import com.mapple.ecommerce.web.controller.SessionAttributeNames;
+import com.mapple.ecommerce.web.model.ShoppingCart;
+import com.mapple.ecommerce.web.util.SessionManager;
 
 /**
  * Filtro para inicializacion de la sesion y estado comun requerido.

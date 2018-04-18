@@ -1,7 +1,20 @@
 
-	</div> <!-- content -->
-	<div class="footer">
-		<p>Aviso Legal | <a href="/MappleWeb/html/contact/contact-pre.jsp">Contacta con nosotros</a> | ... </p>
+
+	</div> <!-- Fin del contenido -->
+	
+	
+	<div class="container">
+	  <div class="row">
+	  <hr>
+	    <div class="col-lg-12">
+	      <div class="col-md-8">
+	        <a href="#">Terms of Service</a> | <a href="#">Privacy</a>    
+	      </div>
+	      <div class="col-md-4 muted pull-right">
+		© 2018 Mapple Inc. All rights reserved
+	      </div>
+	    </div>
+	  </div>
 	</div>
 </body>
 </html>
