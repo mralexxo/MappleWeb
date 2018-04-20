@@ -18,8 +18,12 @@ public interface ParameterNames {
 	public static final String APELLIDOS = "apellidos";
 	public static final String TELEFONO = "telefono";
 
+	public static final String PRODUCTO = "producto";
+	public static final String ID_PRODUCTO = "id_producto";
+	public static final String PRECIO = "precio";
+	public static final String CART_DUPLICATED = "cart_duplicated";
+	public static final String NOMBRE_PRODUCTO = "nombreProducto";
 
-	
 	public static final String DESDE = "desde";
 	public static final String HASTA = "hasta";
 

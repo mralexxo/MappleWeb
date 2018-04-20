@@ -4,7 +4,6 @@
 
 <p>Por favor inténtelo de nuevo más tarde. Si el error persiste contacte con nosotros.</p>
 
-<p><a href="/">Continuar...</a></p>
 
 <%@include file="/html/common/footer.jsp"%>
 

@@ -3,34 +3,27 @@ package com.mapple.ecommerce.web.model;
 import com.mapple.ecommerce.model.Producto;
 
 public class ShoppingCartLine {
+	
 	private Producto product = null;
-	private int units = 0;
-	 
-	/**
-	 * Aqui si tiene sentido un constructor asi.
-	 * @param product
-	 * @param units
-	 * @return
-	 */
-	public ShoppingCartLine(Producto product, int units ) {
-		setProduct(product);
-		setUnits(units);
+    private double precioTotal;
+	
+	public ShoppingCartLine() {
 	}
 
 	public Producto getProduct() {
 		return product;
 	}
- 
+
 	public void setProduct(Producto product) {
 		this.product = product;
 	}
 
-	public int getUnits() {
-		return units;
+	public double getPrecioTotal() {
+		return precioTotal;
 	}
 
-	public void setUnits(int units) {
-		this.units = units;
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 	
 }

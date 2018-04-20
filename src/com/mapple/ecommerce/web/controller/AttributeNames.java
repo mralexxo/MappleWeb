@@ -23,7 +23,7 @@ public interface AttributeNames {
 	public static final String DUPLICATED_EMAIL = "Ese mail ya esta vinculado a otra cuenta.";
 	//Error de busqueda
 	public static final String NOT_FOUND = "No se ha encontrado ningún producto que cumpla esos requisitos.";
-	
+	public static final String ALREADY_ON_CART = "alreadyCart";
 	
 	public static final String PRODUCTOS = "productos";
 	public static final String TOP_PRODUCTOS = "top_productos";

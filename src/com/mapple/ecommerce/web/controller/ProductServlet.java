@@ -44,7 +44,22 @@ public class ProductServlet extends HttpServlet {
 		action = request.getParameter(ParameterNames.ACTION);
 		
 		if (ParameterNames.FIND_BY_ID.equalsIgnoreCase(action)) {
+			Long idProducto = Long.parseLong(request.getParameter(ParameterNames.ID_PRODUCTO)) ;	
+			Producto productoDetail = new Producto();
 			
+			try {
+			
+			productoDetail = productoService.findById(idProducto, idioma);	
+			if (productoDetail==null ) {
+				request.setAttribute(AttributeNames.ERROR, AttributeNames.NOT_FOUND);
+				target = ViewsPaths.INDEX_SERVLET;
+			} else {	
+				target = ViewsPaths.PRODUCT_DETAIL;
+				request.setAttribute(ParameterNames.PRODUCTO, productoDetail);
+			}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		} else if (ParameterNames.FIND_BY_CRITERIA.equalsIgnoreCase(action)) {
 

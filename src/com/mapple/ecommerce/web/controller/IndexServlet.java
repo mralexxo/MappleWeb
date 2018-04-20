@@ -14,8 +14,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.mapple.ecommerce.model.Producto;
+import com.mapple.ecommerce.service.ProductoCriteria;
 import com.mapple.ecommerce.service.ProductoService;
 import com.mapple.ecommerce.service.impl.ProductoServiceImpl;
+import com.mapple.ecommerce.web.util.SessionManager;
+import com.mapple.ecommerce.web.util.WebConstants;
 
 @WebServlet("/IndexServlet")
 public class IndexServlet extends HttpServlet {
@@ -31,19 +34,17 @@ public class IndexServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		int n = 10;
+		int n = 1;
+		String target = null;
+		String idioma = SessionManager.get(request,WebConstants.USER_LOCALE).toString().substring(0,2).toUpperCase();
 		try{
-			List<Producto> topProductos = new ArrayList<Producto>();
-			Producto p1 = new Producto();
-			p1.setNombre("Cocacola");
-			topProductos.add(p1);
+		ProductoCriteria producto = new ProductoCriteria();	
+		producto.setNombre(" ");
+		List<Producto> masStock=productoService.findByCriteria(producto, n,15,idioma);
+
 			
-			/*List<Producto> topProductos=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
-		List<Producto> masStock=productoService.findByCriteria(ProductoCriteria c, n, int count, String idioma);
-		*/
-		request.setAttribute(AttributeNames.TOP_PRODUCTOS, topProductos);
-		/*request.setAttribute(AttributeNames.STOCK_PRODUCTOS, masStock);
-			*/
+		request.setAttribute(AttributeNames.PRODUCTOS, masStock);
+		
 		request.getRequestDispatcher(ViewsPaths.INDEX).forward(request, response);
 		}
 		

@@ -1,0 +1,24 @@
+#producto{
+	width:100%;
+	margin:auto;
+	padding: 10px 0 10px 0;
+  margin: 0;
+  list-style: none;
+  background-color:rgba(237, 239, 242,0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+#individual{
+	width:300px !important;
+	padding: 10px 0 0 0;
+	background-color:white;
+	margin-top:30px;
+	
+}

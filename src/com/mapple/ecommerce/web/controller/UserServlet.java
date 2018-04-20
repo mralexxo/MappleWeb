@@ -59,13 +59,8 @@ public class UserServlet extends HttpServlet {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Usuario: " + ToStringUtil.toString(u));
 				}
-				Usuario correo = new Usuario();
-				correo=usuarioService.create(u);
 				
-				if (correo!=null) {
-					System.out.println(u.getCorreoUsuario());
-					mailService.sendMail("Bienvenid@, te has registrado con éxito a Mapple.","Mensaje importante de Mapple Incorporation" , request.getParameter(ParameterNames.EMAIL));
-				}
+				
 				response.sendRedirect(request.getContextPath()+ViewsPaths.SIGN_IN);
 			}
 		}catch (Throwable e) {			
