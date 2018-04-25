@@ -34,7 +34,7 @@
 			      <h4 class="card-title"><%=e.getNombre()%></h4>
 			      <a href="/MappleWeb/ProductServlet?action=findById&id_producto=<%=e.getCodProducto()%>" class="btn btn-primary"><fmt:message key="ver_producto" bundle="${messages}"/></a>
       			<form name="informacionProducto" method="POST" action="/MappleWeb/ShoppingCartServlet" name="shopping_cart">
-			          	<input type="hidden" name="nombreProducto" value="<%=e.getNombre()%>}" >										
+			          	<input type="hidden" name="nombreProducto" value="${request.getAttribute(ParameterNames.NOMBRE)}" >										
 						<input type="hidden" name="id_producto" value="<%=e.getCodProducto() %>">
 						<input  type="hidden" name="precio" value="<%=e.getPrecioUnitario() %>">	
 			            <div class="elegir">

@@ -103,7 +103,7 @@
 			<ul class="nav navbar-nav navbar-right">
 		    <li><form class="form-inline my-2 my-lg-0" action="/MappleWeb/ProductServlet?action=findByCriteria" method="post">
 		    	<input type="hidden" name="action" value="findByCriteria"/>
-		      <input name="nombre" value="<%=request.getAttribute(ParameterNames.NOMBRE)%>" class="form-control mr-sm-2" type="search" placeholder=<fmt:message key="search-input" bundle="${messages}"/> />
+		      <input name="nombre" value="${request.getAttribute(ParameterNames.NOMBRE)}" class="form-control mr-sm-2" type="search" placeholder=<fmt:message key="search-input" bundle="${messages}"/> />
 		      <input class="btn" type="submit" style="display:none"></input>
 		      <!--	<input type="submit" value="<fmt:message key="buscar" bundle="${messages}"/>"/> -->
 		   	</form></li> 
