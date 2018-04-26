@@ -57,7 +57,6 @@ public class LocaleManager {
 	 * Más info: 
      * https://docs.oracle.com/javase/tutorial/i18n/locale/matching.html
 	 * 
-	 * @author https://www.linkedin.com/in/joseantoniolopezperez
 	 */
 	public static List<Locale> getMatchedLocales(String ranges) {
 		List<Locale.LanguageRange> languageRanges = Locale.LanguageRange.parse(ranges);		
