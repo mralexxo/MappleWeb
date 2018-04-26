@@ -63,6 +63,7 @@ public class ProductServlet extends HttpServlet {
 			
 		} else if (ParameterNames.FIND_BY_CRITERIA.equalsIgnoreCase(action)) {
 
+			//Recibimos parámetros desde la jsp
 			String nombre = request.getParameter(ParameterNames.NOMBRE);
 			String desde = request.getParameter(ParameterNames.DESDE);	
 			String hasta = request.getParameter(ParameterNames.HASTA);	
@@ -80,6 +81,7 @@ public class ProductServlet extends HttpServlet {
 			criteria.setPrecioDesde(StringUtils.isEmpty(desde)?0.0d:Double.valueOf(desde)); 
 			criteria.setPrecioHasta(StringUtils.isEmpty(hasta)?Double.MAX_VALUE:Double.valueOf(hasta));
 
+			//se completa el criterio con los parámetros
 			try {
 				List<Producto> productos = productoService.findByCriteria(criteria, 1, 15, idioma);	
 				if (productos.isEmpty()) {
